@@ -1,59 +1,167 @@
-# TheLastClue
+# 🕵️ The Last Clue
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+## 🔎 An Interactive Detective Mystery Web Application
 
-## Development server
+**The Last Clue** is an interactive detective investigation web application built with Angular. Users take the role of a detective, access classified case files, examine clues, investigate suspects, and solve mysterious cases.
 
-To start a local development server, run:
+The application combines Angular concepts with an engaging mystery-game experience.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## ✨ Features
 
-## Code scaffolding
+- 🔐 Detective Login & Access Validation
+- 🕵️ Interactive Detective Dashboard
+- 📝 Investigator Profile using Reactive Forms
+- 🔄 Two-Way Data Binding using `ngModel`
+- 🧭 Angular Routing
+- 🔎 Three Interactive Mystery Cases
+- 🧩 Progressive Clue Investigation
+- 👥 Suspect Investigation
+- 🎯 Answer Validation
+- ⏱️ Investigation Time Estimation
+- ⏳ Live Case Investigation Timer
+- 🔒 Password-Protected Final Case
+- ✅ Case Solved / Failed States
+- 📱 Responsive User Interface
+- 🎨 Premium Dark Detective-Themed UI
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 📂 Cases
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 🔎 Case #001 – The Vanishing Hour
 
-```bash
-ng generate --help
-```
+A mysterious clock stops at a specific time inside a study.
 
-## Building
+The detective must examine multiple clues and reconstruct the timeline to determine the exact time the clock stopped.
 
-To build the project run:
+**Difficulty:** Easy  
+**Estimated Time:** 5–8 minutes
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 🕵️ Case #002 – The Silent Witness
 
-## Running unit tests
+A security incident involves conflicting statements from multiple people.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+By comparing security camera records, door logs, and witness statements, the detective must identify who is lying.
 
-```bash
-ng test
-```
+**Difficulty:** Medium  
+**Estimated Time:** 8–12 minutes
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+### 🔐 Case #003 – The Midnight Murder
 
-```bash
-ng e2e
-```
+The final investigation involves a murder inside a mansion.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Four suspects provide different alibis. The detective must analyze the timeline, security records, and evidence to identify the killer.
 
-## Additional Resources
+**Difficulty:** Hard  
+**Estimated Time:** 12–18 minutes
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🛠️ Technologies Used
+
+- **Angular**
+- **TypeScript**
+- **HTML5**
+- **CSS3**
+- **Angular Forms**
+- **Angular Reactive Forms**
+- **Angular Router**
+
+---
+
+## 🧠 Angular Concepts Implemented
+
+This project demonstrates several important Angular concepts:
+
+### Two-Way Data Binding
+
+Used with `[(ngModel)]` for handling user input and dynamically updating the interface.
+
+### Reactive Forms
+
+Used for creating and validating the investigator profile form.
+
+### Component-Based Architecture
+
+Different application sections are organized into separate Angular components.
+
+### Angular Routing
+
+Used to navigate between:
+
+- Login
+- Dashboard
+- Case #001
+- Case #002
+- Case #003
+
+### Conditional Rendering
+
+Used to dynamically display:
+
+- Login errors
+- Case clues
+- Investigation results
+- Locked/unlocked case content
+- Solved/unsolved states
+
+### Event Binding
+
+Used for actions such as:
+
+- Login
+- Revealing clues
+- Submitting answers
+- Unlocking cases
+- Resetting investigations
+
+---
+
+## 📁 Project Structure
+
+```text
+The-Last-Clue/
+│
+├── src/
+│   └── app/
+│       │
+│       ├── login/
+│       │   ├── login.ts
+│       │   ├── login.html
+│       │   └── login.css
+│       │
+│       ├── dashboard/
+│       │   ├── dashboard.ts
+│       │   ├── dashboard.html
+│       │   └── dashboard.css
+│       │
+│       ├── case/
+│       │   ├── case.ts
+│       │   ├── case.html
+│       │   └── case.css
+│       │
+│       ├── case2/
+│       │   ├── case2.ts
+│       │   ├── case2.html
+│       │   └── case2.css
+│       │
+│       ├── case3/
+│       │   ├── case3.ts
+│       │   ├── case3.html
+│       │   └── case3.css
+│       │
+│       ├── app.ts
+│       ├── app.html
+│       ├── app.css
+│       └── app.routes.ts
+│
+├── public/
+├── package.json
+├── angular.json
+└── README.md
