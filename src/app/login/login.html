@@ -1,0 +1,113 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="badge">
+      THE LAST CLUE
+    </div>
+
+    <div class="icon">
+      🔐
+    </div>
+
+    <h1>Detective Access</h1>
+
+    <p class="subtitle">
+      Enter your credentials to access classified case files.
+    </p>
+
+    <form (ngSubmit)="login()">
+
+      <!-- Detective ID -->
+      <div class="input-group">
+
+        <label for="detectiveId">
+          Detective ID
+        </label>
+
+        <input
+          id="detectiveId"
+          type="text"
+          [(ngModel)]="detectiveId"
+          name="detectiveId"
+          placeholder="Enter detective ID"
+          autocomplete="off"
+          required
+        />
+
+      </div>
+
+
+      <!-- Access Code -->
+      <div class="input-group">
+
+        <label for="password">
+          Access Code
+        </label>
+
+        <div class="password-box">
+
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            [(ngModel)]="password"
+            name="password"
+            placeholder="Enter access code"
+            required
+          />
+
+          <button
+            type="button"
+            class="eye-btn"
+            (click)="showPassword = !showPassword"
+          >
+            {{ showPassword ? '🙈' : '👁️' }}
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- LIVE TWO-WAY BINDING PREVIEW -->
+      @if (detectiveId) {
+
+        <div class="binding-preview">
+
+          <span>LIVE DETECTIVE ID</span>
+
+          <strong>{{ detectiveId }}</strong>
+
+        </div>
+
+      }
+
+
+      <!-- Error -->
+      @if (errorMessage) {
+
+        <p class="error">
+          ⚠ {{ errorMessage }}
+        </p>
+
+      }
+
+
+      <!-- Button -->
+      <button
+        type="submit"
+        class="access-btn"
+      >
+        ACCESS CASE FILES →
+      </button>
+
+    </form>
+
+
+    <div class="security">
+      🔒 CLASSIFIED • AUTHORIZED PERSONNEL ONLY
+    </div>
+
+  </div>
+
+</div>

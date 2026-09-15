@@ -1,0 +1,1217 @@
+/* =========================================
+   THE LAST CLUE
+   CASE #003 — THE MISSING EVIDENCE
+   FINAL CASE • PREMIUM PURPLE
+========================================= */
+
+.case-page {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  color: #f7f0ff;
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(168, 85, 247, 0.25),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0% 70%,
+      rgba(126, 34, 206, 0.18),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      rgba(192, 132, 252, 0.12),
+      transparent 30%
+    ),
+    #0b0612;
+}
+
+
+/* =========================================
+   AMBIENT BACKGROUND
+========================================= */
+
+.case-page::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(216, 180, 254, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(216, 180, 254, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+}
+
+
+/* =========================================
+   LOCK SCREEN
+========================================= */
+
+.lock-screen {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+
+  position: relative;
+}
+
+
+/* glow behind card */
+
+.lock-screen::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  background: rgba(168, 85, 247, 0.16);
+
+  filter: blur(100px);
+
+  animation: lockGlow 5s ease-in-out infinite;
+}
+
+@keyframes lockGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+
+.lock-card {
+  position: relative;
+  z-index: 2;
+
+  width: min(500px, 100%);
+
+  padding: 55px 45px;
+
+  text-align: center;
+
+  border: 1px solid rgba(216, 180, 254, 0.16);
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(34, 15, 51, 0.95),
+      rgba(12, 6, 20, 0.98)
+    );
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.55),
+    0 0 70px rgba(168, 85, 247, 0.10);
+
+  backdrop-filter: blur(20px);
+
+  animation: cardAppear 0.8s ease;
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   LOCK ICON
+========================================= */
+
+.lock-icon {
+  width: 82px;
+  height: 82px;
+
+  margin: 0 auto 25px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.22),
+      rgba(192, 132, 252, 0.07)
+    );
+
+  border: 1px solid rgba(192, 132, 252, 0.25);
+
+  font-size: 32px;
+
+  box-shadow:
+    0 0 45px rgba(168, 85, 247, 0.15);
+
+  animation: lockPulse 3s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 25px rgba(168, 85, 247, 0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 0 55px rgba(168, 85, 247, 0.28);
+  }
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.case-label,
+.section-label,
+.clue-label {
+  color: #c084fc;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+
+.lock-card h1 {
+  margin: 14px 0;
+
+  font-size: clamp(30px, 6vw, 48px);
+
+  letter-spacing: -1.5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #e9d5ff,
+      #c084fc
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.lock-card p {
+  color: #a99bb5;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+.lock-card strong {
+  color: #d8b4fe;
+}
+
+
+.lock-description {
+  max-width: 360px;
+
+  margin: 10px auto 30px;
+}
+
+
+/* =========================================
+   ACCESS INPUT
+========================================= */
+
+.code-box {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.code-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 15px 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(216, 180, 254, 0.13);
+
+  outline: none;
+
+  background: #0b0611;
+
+  color: white;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  transition: 0.3s ease;
+}
+
+.code-box input::placeholder {
+  color: #695a76;
+}
+
+.code-box input:focus {
+  border-color: #a855f7;
+
+  box-shadow:
+    0 0 0 3px rgba(168, 85, 247, 0.10);
+}
+
+
+.code-box button {
+  padding: 0 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9333ea,
+      #c084fc
+    );
+
+  color: #180b24;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.code-box button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(168, 85, 247, 0.30);
+}
+
+
+/* =========================================
+   ACCESS ERROR
+========================================= */
+
+.access-error {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 70, 100, 0.07);
+
+  border: 1px solid rgba(255, 70, 100, 0.18);
+
+  color: #ff9aaa;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   CLASSIFIED FOOTER
+========================================= */
+
+.classified {
+  margin-top: 35px;
+
+  color: #655570;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================
+   UNLOCKED HEADER
+========================================= */
+
+.case-header {
+  position: relative;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 60px 8% 50px;
+
+  border-bottom: 1px solid rgba(216, 180, 254, 0.10);
+}
+
+.case-header h1 {
+  margin: 12px 0;
+
+  font-size: clamp(44px, 7vw, 82px);
+
+  line-height: 0.92;
+
+  letter-spacing: -4px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 20%,
+      #e9d5ff 55%,
+      #a855f7
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.case-header p {
+  max-width: 610px;
+
+  color: #a394af;
+
+  line-height: 1.8;
+
+  font-size: 15px;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.case-status {
+  min-width: 155px;
+
+  padding: 20px 23px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(192, 132, 252, 0.22);
+
+  background:
+    rgba(168, 85, 247, 0.06);
+
+  text-align: right;
+
+  box-shadow:
+    0 0 35px rgba(168, 85, 247, 0.07);
+}
+
+.case-status span {
+  display: block;
+
+  color: #756680;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.case-status strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #d8b4fe;
+
+  font-size: 12px;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.case-container {
+  width: min(1100px, 84%);
+
+  margin: auto;
+
+  padding: 75px 0;
+}
+
+
+/* =========================================
+   CASE BRIEF
+========================================= */
+
+.evidence-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 75px 1fr;
+
+  gap: 30px;
+
+  padding: 45px;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(216, 180, 254, 0.11);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(126, 34, 206, 0.12),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.40);
+
+  overflow: hidden;
+}
+
+.evidence-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  top: -150px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(168, 85, 247, 0.15);
+
+  filter: blur(65px);
+}
+
+.section-number {
+  color: #a855f7;
+
+  font-size: 38px;
+
+  font-weight: 900;
+}
+
+.evidence-card h2 {
+  margin: 10px 0 18px;
+
+  font-size: 29px;
+}
+
+.evidence-card p {
+  color: #a69aaa;
+
+  line-height: 1.85;
+}
+
+.mission {
+  display: inline-block;
+
+  margin-top: 12px;
+
+  color: #d8b4fe;
+}
+
+
+/* =========================================
+   SUSPECTS
+========================================= */
+
+.suspects-section {
+  margin-top: 100px;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+}
+
+.section-heading h2 {
+  margin: 9px 0;
+
+  font-size: 31px;
+}
+
+.section-heading p {
+  color: #94869f;
+}
+
+
+.suspects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+.suspect-card {
+  position: relative;
+
+  padding: 32px;
+
+  min-height: 255px;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(216, 180, 254, 0.08);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(168, 85, 247, 0.07),
+      rgba(255,255,255,0.018)
+    );
+
+  transition: 0.35s ease;
+}
+
+.suspect-card:hover {
+  transform: translateY(-9px);
+
+  border-color: rgba(192, 132, 252, 0.38);
+
+  box-shadow:
+    0 25px 55px rgba(126, 34, 206, 0.17);
+}
+
+
+.suspect-icon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 25px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.25),
+      rgba(192, 132, 252, 0.07)
+    );
+
+  border: 1px solid rgba(192, 132, 252, 0.18);
+
+  color: #d8b4fe;
+
+  font-weight: 900;
+
+  font-size: 20px;
+}
+
+.suspect-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 20px;
+}
+
+.suspect-card span {
+  color: #c084fc;
+
+  font-size: 11px;
+}
+
+.suspect-card p {
+  margin-top: 20px;
+
+  color: #9b8da7;
+
+  line-height: 1.75;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   CLUES
+========================================= */
+
+.clues-section {
+  margin-top: 110px;
+}
+
+
+.clue-card {
+  display: grid;
+
+  grid-template-columns: 90px 1fr;
+
+  gap: 30px;
+
+  padding: 45px;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(216, 180, 254, 0.13);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(126, 34, 206, 0.14),
+      rgba(168, 85, 247, 0.035)
+    );
+
+  box-shadow:
+    0 35px 80px rgba(0,0,0,0.38);
+
+  animation: clueReveal 0.5s ease;
+}
+
+@keyframes clueReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+.clue-number {
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #29103f,
+      #12091b
+    );
+
+  border: 1px solid rgba(192, 132, 252, 0.35);
+
+  color: #d8b4fe;
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 0 35px rgba(168, 85, 247, 0.10);
+}
+
+
+.clue-content h3 {
+  margin: 12px 0;
+
+  font-size: 28px;
+
+  color: #f4eaff;
+}
+
+.clue-content p {
+  max-width: 730px;
+
+  color: #a79aaa;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   CLUE BUTTON
+========================================= */
+
+.clue-btn {
+  margin-top: 27px;
+
+  padding: 14px 22px;
+
+  border-radius: 11px;
+
+  border: 1px solid rgba(192, 132, 252, 0.30);
+
+  background:
+    rgba(168, 85, 247, 0.09);
+
+  color: #d8b4fe;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.clue-btn:hover {
+  transform: translateX(6px);
+
+  background: #a855f7;
+
+  color: white;
+
+  box-shadow:
+    0 12px 35px rgba(168, 85, 247, 0.25);
+}
+
+
+/* =========================================
+   FINAL EVIDENCE
+========================================= */
+
+.final-evidence {
+  margin-top: 28px;
+
+  padding: 22px;
+
+  border-left: 3px solid #a855f7;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(168, 85, 247, 0.10),
+      transparent
+    );
+}
+
+.final-evidence span {
+  color: #d8b4fe;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.final-evidence p {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   FINAL DEDUCTION
+========================================= */
+
+.answer-card {
+  margin-top: 30px;
+
+  padding: 45px;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(216, 180, 254, 0.10);
+
+  background:
+    linear-gradient(
+      145deg,
+      #160b21,
+      #0c0612
+    );
+
+  box-shadow:
+    0 30px 75px rgba(0,0,0,0.40);
+}
+
+.answer-card h2 {
+  margin: 10px 0;
+
+  font-size: 34px;
+}
+
+.answer-card > p {
+  color: #94879f;
+}
+
+
+.answer-row {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+
+.answer-row input {
+  flex: 1;
+
+  padding: 17px 18px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(216, 180, 254, 0.12);
+
+  outline: none;
+
+  background: #09050e;
+
+  color: white;
+
+  font-size: 14px;
+
+  transition: 0.3s ease;
+}
+
+.answer-row input::placeholder {
+  color: #66566f;
+}
+
+.answer-row input:focus {
+  border-color: #a855f7;
+
+  box-shadow:
+    0 0 0 3px rgba(168, 85, 247, 0.10);
+}
+
+
+/* =========================================
+   SOLVE BUTTON
+========================================= */
+
+.check-btn {
+  padding: 0 27px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9333ea,
+      #c084fc
+    );
+
+  color: #180b24;
+
+  font-weight: 900;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.check-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 40px rgba(168, 85, 247, 0.30);
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+.result {
+  margin-top: 20px;
+
+  padding: 16px 20px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+}
+
+.result.success {
+  color: #dfc4ff;
+
+  background:
+    rgba(168, 85, 247, 0.09);
+
+  border:
+    1px solid rgba(192, 132, 252, 0.25);
+}
+
+.result.failure {
+  color: #ff9aaa;
+
+  background:
+    rgba(255, 70, 100, 0.07);
+
+  border:
+    1px solid rgba(255, 70, 100, 0.18);
+}
+
+
+/* =========================================
+   SOLUTION
+========================================= */
+
+.solution-box {
+  margin-top: 25px;
+
+  padding: 32px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(192, 132, 252, 0.25);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.14),
+      rgba(126, 34, 206, 0.04)
+    );
+
+  box-shadow:
+    0 0 45px rgba(168, 85, 247, 0.07);
+
+  animation: solutionReveal 0.6s ease;
+}
+
+@keyframes solutionReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.96)
+      translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
+
+.solution-box span {
+  color: #d8b4fe;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+.solution-box h3 {
+  margin: 10px 0;
+
+  font-size: 32px;
+
+  color: #f3e8ff;
+}
+
+.solution-box p {
+  color: #a397aa;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+.reset-btn {
+  margin-top: 17px;
+
+  padding: 12px 19px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(192, 132, 252, 0.20);
+
+  background:
+    rgba(168, 85, 247, 0.06);
+
+  color: #cdb9dc;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.reset-btn:hover {
+  background:
+    rgba(168, 85, 247, 0.16);
+
+  color: white;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.bottom-actions {
+  margin-top: 50px;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.back-btn {
+  padding: 14px 21px;
+
+  border-radius: 11px;
+
+  border: 1px solid rgba(216, 180, 254, 0.11);
+
+  background: transparent;
+
+  color: #95879f;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  color: white;
+
+  border-color:
+    rgba(192, 132, 252, 0.35);
+
+  background:
+    rgba(168, 85, 247, 0.06);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+  .case-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 30px;
+  }
+
+  .case-status {
+    text-align: left;
+  }
+
+  .suspects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-card,
+  .clue-card {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-row {
+    flex-direction: column;
+  }
+
+  .check-btn {
+    padding: 15px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .lock-card {
+    padding: 40px 25px;
+  }
+
+  .code-box {
+    flex-direction: column;
+  }
+
+  .code-box button {
+    padding: 15px;
+  }
+
+  .case-header {
+    padding: 42px 5%;
+  }
+
+  .case-header h1 {
+    font-size: 48px;
+  }
+
+  .case-container {
+    width: 90%;
+
+    padding: 50px 0;
+  }
+
+  .evidence-card,
+  .clue-card,
+  .answer-card {
+    padding: 27px;
+  }
+
+  .section-heading h2 {
+    font-size: 26px;
+  }
+}

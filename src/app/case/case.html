@@ -1,0 +1,276 @@
+<div class="case-page">
+
+  <header class="case-header">
+
+    <div>
+      <span class="case-label">CASE FILE #001</span>
+      <h1>The Vanishing Hour</h1>
+      <!-- INVESTIGATION STATS -->
+
+<div class="investigation-stats">
+
+  <div class="stat-box">
+    <span>DIFFICULTY</span>
+    <strong>🟢 {{ difficulty }}</strong>
+  </div>
+
+  <div class="stat-box">
+    <span>ESTIMATED TIME</span>
+    <strong>⏱ {{ estimatedTime }}</strong>
+  </div>
+
+  <div class="stat-box">
+    <span>INVESTIGATION TIME</span>
+    <strong>⏳ {{ formattedTime }}</strong>
+  </div>
+
+  <div class="stat-box">
+    <span>CLUES DISCOVERED</span>
+    <strong>🔎 {{ currentClue + 1 }} / {{ clues.length }}</strong>
+  </div>
+
+</div>
+      <p>
+        Reconstruct the timeline. Find the contradiction.
+        Discover the truth.
+      </p>
+    </div>
+
+    <div class="case-status">
+      <span>STATUS</span>
+      <strong>{{ solved ? 'SOLVED' : 'INVESTIGATING' }}</strong>
+    </div>
+
+  </header>
+
+
+  <main class="case-container">
+
+    <!-- CASE BRIEF -->
+
+    <section class="evidence-card">
+
+      <div class="section-number">01</div>
+
+      <div>
+        <span class="section-label">CASE BRIEF</span>
+
+        <h2>Something happened between 10:00 PM and 11:00 PM.</h2>
+
+        <p>
+          A mysterious incident occurred inside an old mansion.
+          Three people were present that night.
+          Each person tells a different version of events.
+        </p>
+
+        <p>
+          One timeline doesn't match.
+          One statement contains a hidden contradiction.
+        </p>
+
+        <strong class="mission">
+          Your mission: find the first clue.
+        </strong>
+      </div>
+
+    </section>
+
+
+    <!-- SUSPECTS -->
+
+    <section class="suspects-section">
+
+      <div class="section-heading">
+        <span class="section-label">02 — SUSPECTS</span>
+        <h2>Three people. Three stories.</h2>
+      </div>
+
+      <div class="suspects-grid">
+
+        <div class="suspect-card">
+          <div class="suspect-icon">👤</div>
+          <h3>Alex Morgan</h3>
+          <span>Last seen near the study.</span>
+
+          <p>
+            "I passed the study at around 10:20 PM.
+            The clock was still running."
+          </p>
+        </div>
+
+
+        <div class="suspect-card">
+          <div class="suspect-icon">👤</div>
+          <h3>Emma Carter</h3>
+          <span>Claims she was in the kitchen.</span>
+
+          <p>
+            "I heard the grandfather clock chime ten times.
+            After that, I stayed in the kitchen."
+          </p>
+        </div>
+
+
+        <div class="suspect-card">
+          <div class="suspect-icon">👤</div>
+          <h3>Daniel Ross</h3>
+          <span>Claims he left before 10 PM.</span>
+
+          <p>
+            "I left the mansion at exactly 9:55 PM.
+            I never returned."
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLUES -->
+
+    <section class="clues-section">
+
+      <div class="section-heading">
+        <span class="section-label">03 — EVIDENCE</span>
+        <h2>Examine the clues</h2>
+
+        <p>
+          Every detail matters. Read carefully before making your deduction.
+        </p>
+      </div>
+
+
+      <div class="clue-card">
+
+        <div class="clue-number">
+         {{ currentClue + 1 }} 
+        </div>
+
+        <div class="clue-content">
+
+          <span class="clue-label">
+            EVIDENCE {{ currentClue + 1 }} / {{ clues.length }}
+          </span>
+
+          <h3>
+            {{ clues[currentClue].title }}
+          </h3>
+
+          <p>
+            {{ clues[currentClue].text }}
+          </p>
+
+          @if (currentClue < clues.length - 1) {
+
+            <button
+              class="clue-btn"
+              (click)="revealNextClue()"
+            >
+              REVEAL NEXT CLUE →
+            </button>
+
+          } @else {
+
+            <div class="final-evidence">
+              <span>🔎 ALL EVIDENCE COLLECTED</span>
+              <p>
+                Now reconstruct the timeline and determine
+                exactly when the clock stopped.
+              </p>
+            </div>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <!-- ANSWER -->
+
+      <div class="answer-card">
+
+        <span class="section-label">FINAL DEDUCTION</span>
+
+        <h2>What time did the clock stop?</h2>
+
+        <p>
+          Examine the evidence and enter your answer.
+        </p>
+
+        <div class="answer-row">
+
+          <input
+            type="text"
+            [(ngModel)]="answer"
+            placeholder="Enter your answer "
+          />
+
+          <button
+  class="check-btn"
+  (click)="checkAnswer()"
+>
+  CHECK CLUE
+</button>
+
+        </div>
+
+
+        @if (message) {
+
+          <div
+            class="result"
+            [class.success]="solved"
+            [class.failure]="!solved"
+          >
+            {{ message }}
+          </div>
+
+        }
+
+
+        @if (solved) {
+
+          <div class="solution-box">
+
+            <span>CASE SOLVED</span>
+
+            <h3>10:37 PM</h3>
+
+            <p>
+              The photograph showed 10:30 PM and was taken
+              exactly 7 minutes before the clock stopped.
+              Therefore, the clock stopped at 10:37 PM.
+            </p>
+
+            <button
+              class="reset-btn"
+              (click)="resetCase()"
+            >
+              INVESTIGATE AGAIN
+            </button>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <div class="bottom-actions">
+
+      <button
+        class="back-btn"
+        routerLink="/dashboard"
+      >
+        ← BACK TO DASHBOARD
+      </button>
+
+    </div>
+
+  </main>
+
+</div>

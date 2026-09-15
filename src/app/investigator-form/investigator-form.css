@@ -1,0 +1,216 @@
+.form-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+
+  background:
+    radial-gradient(circle at 15% 20%, #eee4ff, transparent 35%),
+    radial-gradient(circle at 85% 80%, #e5d7ff, transparent 35%),
+    #f7f3ff;
+}
+
+.form-card {
+  width: 500px;
+  padding: 42px;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid #e5d8f0;
+  border-radius: 28px;
+
+  box-shadow: 0 25px 70px rgba(91, 59, 125, 0.15);
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-heading span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #8c68a8;
+}
+
+.form-heading h1 {
+  margin: 10px 0;
+  color: #342442;
+}
+
+.form-heading p {
+  color: #81758a;
+  font-size: 13px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b3857;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d9cbe7;
+  border-radius: 12px;
+
+  background: #fff;
+
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #8b63ad;
+  box-shadow: 0 0 0 3px rgba(139, 99, 173, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 6px;
+  color: #b05c78;
+  font-size: 11px;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 13px;
+
+  background: #76509a;
+  color: white;
+
+  font-weight: 600;
+  letter-spacing: .5px;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background: #633f85;
+}
+
+button:disabled {
+  background: #cbbbd7;
+  cursor: not-allowed;
+}.form-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(circle at 20% 20%, #eee4ff, transparent 35%),
+    radial-gradient(circle at 80% 80%, #e5d5ff, transparent 35%),
+    #f7f3ff;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+
+  background: white;
+  border-radius: 25px;
+
+  box-shadow: 0 20px 60px rgba(80, 50, 110, 0.15);
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-heading span {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #815ba0;
+  font-weight: bold;
+}
+
+.form-heading h1 {
+  margin: 10px 0;
+  color: #352342;
+}
+
+.form-heading p {
+  color: #7d7185;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4c3a58;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+
+  border: 1px solid #d9c9e8;
+  border-radius: 12px;
+
+  background: #fff;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #8055a4;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 6px;
+  color: #b45672;
+  font-size: 11px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #76509a;
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #cdbed8;
+  cursor: not-allowed;
+}

@@ -1,0 +1,524 @@
+<div class="case-page">
+
+  <!-- ================= LOCK SCREEN ================= -->
+
+  @if (locked) {
+
+    <div class="lock-screen">
+
+      <div class="lock-card">
+
+        <div class="lock-icon">🔐</div>
+
+        <div class="classified-label">
+          CLASSIFIED CASE FILE
+        </div>
+
+        <h1>CASE FILE #003</h1>
+
+        <h2>THE MIDNIGHT MURDER</h2>
+
+        <p class="lock-description">
+          This case has been classified as
+          <strong>LEVEL OMEGA</strong>.
+        </p>
+
+        <p class="lock-subtext">
+          Authorization is required before the final
+          investigation can begin.
+        </p>
+
+        <div class="access-box">
+
+          <label for="accessCode">
+            ENTER ACCESS CODE
+          </label>
+
+          <input
+            id="accessCode"
+            type="password"
+            [(ngModel)]="accessCode"
+            placeholder="Enter case code"
+            autocomplete="off"
+            (keyup.enter)="unlockCase()"
+          />
+
+          <button
+            class="unlock-btn"
+            (click)="unlockCase()"
+          >
+            UNLOCK CASE →
+          </button>
+
+        </div>
+
+        @if (accessMessage) {
+          <p class="access-error">
+            ⚠ {{ accessMessage }}
+          </p>
+        }
+
+        <div class="security-line">
+          🔒 CLASSIFIED • FINAL INVESTIGATION
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+  <!-- ================= UNLOCKED CASE ================= -->
+
+  @if (!locked) {
+
+    <div class="case-container">
+
+      <!-- HEADER -->
+
+      <header class="case-header">
+
+        <div class="header-left">
+
+          <span class="case-number">
+            CASE FILE #003
+          </span>
+
+          <span class="classified">
+            CLASSIFIED
+          </span>
+
+        </div>
+
+        <div class="case-status">
+          ● ACTIVE INVESTIGATION
+        </div>
+
+      </header>
+
+
+      <!-- TITLE -->
+
+      <section class="hero-section">
+
+        <div class="hero-tag">
+          FINAL INVESTIGATION
+        </div>
+
+        <h1>The Midnight Murder</h1>
+
+        <p>
+          A murder has occurred.
+          Four suspects. One impossible alibi.
+          Find the truth before the killer disappears.
+        </p>
+
+      </section>
+
+
+      <!-- CASE BRIEF -->
+
+      <section class="brief-card">
+
+        <div class="section-label">
+          CASE BRIEF
+        </div>
+
+        <h2>
+          A murder has been committed inside the mansion.
+        </h2>
+
+        <p>
+          Dr. Adrian Vale was found unresponsive inside
+          his private study at 11:42 PM.
+          Investigators have reconstructed the events
+          surrounding the incident.
+        </p>
+
+        <strong class="mission">
+          Your mission: identify the killer.
+        </strong>
+
+      </section>
+
+
+      <!-- SUSPECTS -->
+
+      <section class="suspects-section">
+
+        <div class="section-heading">
+
+          <span>01</span>
+
+          <div>
+            <small>SUSPECT DATABASE</small>
+            <h2>Four People. Four Stories.</h2>
+          </div>
+
+        </div>
+
+
+        <div class="suspects-grid">
+
+          <!-- VICTOR -->
+
+          <div class="suspect-card">
+
+            <div class="suspect-top">
+
+              <div class="suspect-icon">
+                V
+              </div>
+
+              <div class="suspect-number">
+                SUSPECT 01
+              </div>
+
+            </div>
+
+            <h3>Victor Hale</h3>
+
+            <span>
+              Former Business Partner
+            </span>
+
+            <p>
+              Claims he left the mansion at
+              <strong>11:20 PM</strong>.
+            </p>
+
+          </div>
+
+
+          <!-- SARAH -->
+
+          <div class="suspect-card">
+
+            <div class="suspect-top">
+
+              <div class="suspect-icon">
+                S
+              </div>
+
+              <div class="suspect-number">
+                SUSPECT 02
+              </div>
+
+            </div>
+
+            <h3>Sarah Quinn</h3>
+
+            <span>
+              House Manager
+            </span>
+
+            <p>
+              Claims she remained in the kitchen
+              from <strong>11:00 PM until midnight</strong>.
+            </p>
+
+          </div>
+
+
+          <!-- ETHAN -->
+
+          <div class="suspect-card">
+
+            <div class="suspect-top">
+
+              <div class="suspect-icon">
+                E
+              </div>
+
+              <div class="suspect-number">
+                SUSPECT 03
+              </div>
+
+            </div>
+
+            <h3>Ethan Cole</h3>
+
+            <span>
+              Research Assistant
+            </span>
+
+            <p>
+              Claims he was working alone
+              inside the library.
+            </p>
+
+          </div>
+
+
+          <!-- MAYA -->
+
+          <div class="suspect-card">
+
+            <div class="suspect-top">
+
+              <div class="suspect-icon">
+                M
+              </div>
+
+              <div class="suspect-number">
+                SUSPECT 04
+              </div>
+
+            </div>
+
+            <h3>Maya Reed</h3>
+
+            <span>
+              Family Friend
+            </span>
+
+            <p>
+              Claims she arrived at
+              <strong>11:35 PM</strong>,
+              after everything had already happened.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- CLUES -->
+
+      <section class="clues-section">
+
+        <div class="section-heading">
+
+          <span>02</span>
+
+          <div>
+            <small>EVIDENCE ARCHIVE</small>
+            <h2>Reconstruct the Timeline</h2>
+          </div>
+
+        </div>
+
+
+        <div class="clue-wrapper">
+
+          <div class="clue-counter">
+            EVIDENCE
+            {{ currentClue + 1 }}
+            /
+            {{ clues.length }}
+          </div>
+
+
+          <div class="clue-card">
+
+            <div class="clue-number">
+              0{{ currentClue + 1 }}
+            </div>
+
+            <div class="clue-content">
+
+              <span class="clue-label">
+                INVESTIGATION NOTE
+              </span>
+
+              <h3>
+                {{ clues[currentClue].title }}
+              </h3>
+
+              <p>
+                {{ clues[currentClue].text }}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          @if (currentClue < clues.length - 1) {
+
+            <button
+              class="clue-btn"
+              (click)="revealNextClue()"
+            >
+              REVEAL NEXT EVIDENCE →
+            </button>
+
+          }
+
+          @if (currentClue === clues.length - 1) {
+
+            <div class="all-clues">
+              ✓ ALL EVIDENCE REVIEWED
+            </div>
+
+          }
+
+        </div>
+
+      </section>
+
+
+      <!-- FINAL DEDUCTION -->
+
+      <section class="deduction-section">
+
+        <div class="section-heading">
+
+          <span>03</span>
+
+          <div>
+            <small>FINAL DEDUCTION</small>
+            <h2>Who Is The Killer?</h2>
+          </div>
+
+        </div>
+
+
+        <div class="answer-card">
+
+          <div class="question-mark">
+            ?
+          </div>
+
+          <h2>
+            Who committed the murder?
+          </h2>
+
+          <p>
+            Study the timeline, compare the alibis,
+            and identify the killer.
+          </p>
+
+
+          <div class="answer-box">
+
+            <label for="answer">
+              ENTER YOUR SUSPECT
+            </label>
+
+            <input
+              id="answer"
+              type="text"
+              [(ngModel)]="answer"
+              placeholder="Enter suspect name..."
+              autocomplete="off"
+              (keyup.enter)="checkAnswer()"
+            />
+
+            <button
+              class="check-btn"
+              (click)="checkAnswer()"
+            >
+              SUBMIT DEDUCTION →
+            </button>
+
+          </div>
+
+
+          @if (message) {
+
+            <div
+              class="result-message"
+              [class.success]="solved"
+              [class.failure]="!solved"
+            >
+
+              {{ message }}
+
+            </div>
+
+          }
+
+
+          @if (solved) {
+
+            <div class="solution-box">
+
+              <div class="solution-icon">
+                ✓
+              </div>
+
+              <div>
+
+                <span>
+                  CASE SOLVED
+                </span>
+
+                <h3>
+                  Victor Hale
+                </h3>
+
+                <p>
+                  His statement places him outside the
+                  mansion before 11:20 PM, but the security
+                  system recorded his access card in the
+                  study corridor between 11:29 PM and
+                  11:34 PM.
+                </p>
+
+                <p>
+                  His timeline directly contradicts the
+                  physical evidence.
+                </p>
+
+              </div>
+
+            </div>
+
+          }
+
+        </div>
+
+      </section>
+
+
+      <!-- RESET -->
+
+      <section class="reset-section">
+
+        <button
+          class="reset-btn"
+          (click)="resetCase()"
+        >
+          ↻ REVIEW CASE FROM BEGINNING
+        </button>
+
+      </section>
+
+
+      <!-- FOOTER -->
+
+      <footer class="case-footer">
+
+        <div>
+          THE LAST CLUE
+        </div>
+
+        <span>
+          CASE #003 • THE MIDNIGHT MURDER
+        </span>
+
+        <span>
+          CLASSIFIED INVESTIGATION
+        </span>
+
+      </footer>
+
+
+      <!-- BACK TO DASHBOARD -->
+
+      <div class="dashboard-link">
+
+        <a routerLink="/dashboard">
+          ← RETURN TO CASE BOARD
+        </a>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

@@ -1,0 +1,334 @@
+<div class="case-page">
+
+  <header class="case-header">
+
+    <div>
+      <span class="case-label">CASE FILE #002</span>
+
+      <h1>The Silent Witness</h1>
+
+      <p>
+        Someone is lying. The evidence isn't.
+        Find the contradiction.
+      </p>
+    </div>
+
+    <div class="case-status">
+      <span>STATUS</span>
+
+      <strong>
+        {{ solved ? 'SOLVED' : 'INVESTIGATING' }}
+      </strong>
+    </div>
+
+  </header>
+
+
+  <main class="case-container">
+
+
+    <!-- CASE BRIEF -->
+
+    <section class="evidence-card">
+
+      <div class="section-number">
+        01
+      </div>
+
+      <div>
+
+        <span class="section-label">
+          CASE BRIEF
+        </span>
+
+        <h2>
+          Someone entered the archive room at 9:18 PM.
+        </h2>
+
+        <p>
+          A confidential file disappeared from the archive room
+          during a six-minute window.
+        </p>
+
+        <p>
+          Three people were nearby that evening.
+          Only one statement doesn't match the evidence.
+        </p>
+
+        <strong class="mission">
+          Your mission: identify the liar.
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- SUSPECTS -->
+
+    <section class="suspects-section">
+
+      <div class="section-heading">
+
+        <span class="section-label">
+          02 — SUSPECTS
+        </span>
+
+        <h2>
+          Three stories. One contradiction.
+        </h2>
+
+      </div>
+
+
+      <div class="suspects-grid">
+
+
+        <div class="suspect-card">
+
+          <div class="suspect-icon">
+            👤
+          </div>
+
+          <h3>
+            Maya Reed
+          </h3>
+
+          <span>
+            Claims she was in the cafeteria.
+          </span>
+
+          <p>
+            "I was in the cafeteria from 9:10 PM
+            until 9:30 PM."
+          </p>
+
+        </div>
+
+
+        <div class="suspect-card">
+
+          <div class="suspect-icon">
+            👤
+          </div>
+
+          <h3>
+            Liam Cross
+          </h3>
+
+          <span>
+            Claims he entered the archive room.
+          </span>
+
+          <p>
+            "I entered around 9:20 PM
+            and left a few minutes later."
+          </p>
+
+        </div>
+
+
+        <div class="suspect-card">
+
+          <div class="suspect-icon">
+            👤
+          </div>
+
+          <h3>
+            Noah Blake
+          </h3>
+
+          <span>
+            Claims he was working nearby.
+          </span>
+
+          <p>
+            "I was at my desk working
+            throughout the evening."
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLUES -->
+
+    <section class="clues-section">
+
+      <div class="section-heading">
+
+        <span class="section-label">
+          03 — EVIDENCE
+        </span>
+
+        <h2>
+          Listen to the silent witness.
+        </h2>
+
+        <p>
+          The evidence cannot speak.
+          But it can tell you exactly what happened.
+        </p>
+
+      </div>
+
+
+      <div class="clue-card">
+
+        <div class="clue-number">
+          {{ currentClue + 1 }}
+        </div>
+
+
+        <div class="clue-content">
+
+          <span class="clue-label">
+            EVIDENCE {{ currentClue + 1 }} / {{ clues.length }}
+          </span>
+
+          <h3>
+            {{ clues[currentClue].title }}
+          </h3>
+
+          <p>
+            {{ clues[currentClue].text }}
+          </p>
+
+
+          @if (currentClue < clues.length - 1) {
+
+            <button
+              type="button"
+              class="clue-btn"
+              (click)="revealNextClue()"
+            >
+              REVEAL NEXT CLUE →
+            </button>
+
+          } @else {
+
+            <div class="final-evidence">
+
+              <span>
+                🔎 ALL EVIDENCE COLLECTED
+              </span>
+
+              <p>
+                Compare every statement with the
+                timeline and identify the person
+                who could not have been where they claimed.
+              </p>
+
+            </div>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <!-- ANSWER -->
+
+      <div class="answer-card">
+
+        <span class="section-label">
+          FINAL DEDUCTION
+        </span>
+
+        <h2>
+          Who is lying?
+        </h2>
+
+        <p>
+          Enter the name of the suspect whose statement
+          contradicts the evidence.
+        </p>
+
+
+        <div class="answer-row">
+
+          <input
+            type="text"
+            [(ngModel)]="answer"
+            placeholder="Enter suspect name"
+          />
+
+          <button
+            type="button"
+            class="check-btn"
+            (click)="checkAnswer()"
+          >
+            CHECK CLUE
+          </button>
+
+        </div>
+
+
+        @if (message) {
+
+          <div
+            class="result"
+            [class.success]="solved"
+            [class.failure]="!solved"
+          >
+            {{ message }}
+          </div>
+
+        }
+
+
+        @if (solved) {
+
+          <div class="solution-box">
+
+            <span>
+              CASE SOLVED
+            </span>
+
+            <h3>
+              MAYA REED
+            </h3>
+
+            <p>
+              Maya claimed she stayed in the cafeteria
+              until 9:30 PM.
+              However, the evidence places activity
+              connected to the archive room at 9:19 PM.
+              Her statement cannot be trusted.
+            </p>
+
+            <button
+              type="button"
+              class="reset-btn"
+              (click)="resetCase()"
+            >
+              INVESTIGATE AGAIN
+            </button>
+
+          </div>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <div class="bottom-actions">
+
+      <button
+        class="back-btn"
+        routerLink="/dashboard"
+      >
+        ← BACK TO DASHBOARD
+      </button>
+
+    </div>
+
+  </main>
+
+</div>

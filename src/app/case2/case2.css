@@ -1,0 +1,852 @@
+/* =========================================
+   THE SILENT WITNESS
+   PREMIUM PURPLE THEME
+========================================= */
+
+.case-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.20), transparent 32%),
+    radial-gradient(circle at 85% 75%, rgba(192, 132, 252, 0.14), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(88, 28, 135, 0.18), transparent 35%),
+    #0d0715;
+
+  color: #f5efff;
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND GRID
+========================================= */
+
+.case-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.035;
+
+  background-image:
+    linear-gradient(rgba(216, 180, 254, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216, 180, 254, 0.8) 1px, transparent 1px);
+
+  background-size: 45px 45px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.case-header {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 55px 8% 45px;
+
+  border-bottom: 1px solid rgba(216, 180, 254, 0.10);
+}
+
+.case-label,
+.section-label,
+.clue-label {
+  color: #c084fc;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.case-header h1 {
+  margin: 12px 0;
+
+  font-size: clamp(42px, 6vw, 76px);
+
+  letter-spacing: -3px;
+  line-height: 0.95;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #e9d5ff 45%,
+    #c084fc
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.case-header p {
+  max-width: 560px;
+
+  color: #a89bb7;
+
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.case-status {
+  min-width: 145px;
+
+  padding: 18px 22px;
+
+  border: 1px solid rgba(192, 132, 252, 0.28);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.13),
+      rgba(192, 132, 252, 0.04)
+    );
+
+  box-shadow:
+    0 0 35px rgba(139, 92, 246, 0.08);
+
+  text-align: right;
+}
+
+.case-status span {
+  display: block;
+
+  color: #82738f;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.case-status strong {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #d8b4fe;
+
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.case-container {
+  width: min(1100px, 84%);
+
+  margin: auto;
+
+  padding: 70px 0;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  margin: 9px 0;
+
+  font-size: 30px;
+}
+
+.section-heading p {
+  color: #9588a3;
+}
+
+
+/* =========================================
+   CASE BRIEF
+========================================= */
+
+.evidence-card {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 70px 1fr;
+
+  gap: 28px;
+
+  padding: 42px;
+
+  border: 1px solid rgba(216, 180, 254, 0.12);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.10),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px rgba(255,255,255,0.03);
+
+  overflow: hidden;
+}
+
+.evidence-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  right: -120px;
+  top: -140px;
+
+  border-radius: 50%;
+
+  background: rgba(168, 85, 247, 0.18);
+
+  filter: blur(55px);
+}
+
+.section-number {
+  font-size: 36px;
+
+  font-weight: 800;
+
+  color: #a855f7;
+}
+
+.evidence-card h2 {
+  margin: 10px 0 18px;
+
+  font-size: 28px;
+}
+
+.evidence-card p {
+  color: #a99db5;
+
+  line-height: 1.8;
+}
+
+.mission {
+  display: inline-block;
+
+  margin-top: 10px;
+
+  color: #d8b4fe;
+}
+
+
+/* =========================================
+   SUSPECTS
+========================================= */
+
+.suspects-section {
+  margin-top: 90px;
+}
+
+.suspects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.suspect-card {
+  position: relative;
+
+  padding: 30px;
+
+  min-height: 250px;
+
+  border: 1px solid rgba(216, 180, 254, 0.09);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.07),
+      rgba(255,255,255,0.018)
+    );
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.suspect-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(192, 132, 252, 0.45);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.15),
+      rgba(192, 132, 252, 0.04)
+    );
+
+  box-shadow:
+    0 20px 50px rgba(126, 34, 206, 0.16);
+}
+
+.suspect-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 25px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.22),
+      rgba(192, 132, 252, 0.08)
+    );
+
+  border: 1px solid rgba(192, 132, 252, 0.18);
+
+  font-size: 21px;
+}
+
+.suspect-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 20px;
+}
+
+.suspect-card span {
+  color: #c084fc;
+
+  font-size: 12px;
+}
+
+.suspect-card p {
+  margin-top: 20px;
+
+  color: #9b8da8;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   CLUES
+========================================= */
+
+.clues-section {
+  margin-top: 100px;
+}
+
+.clue-card {
+  display: grid;
+
+  grid-template-columns: 90px 1fr;
+
+  gap: 30px;
+
+  padding: 42px;
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(216, 180, 254, 0.12);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(126, 34, 206, 0.13),
+      rgba(168, 85, 247, 0.045)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+
+  animation: clueReveal 0.5s ease;
+}
+
+@keyframes clueReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.clue-number {
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #24103b,
+      #160b25
+    );
+
+  border: 1px solid rgba(192, 132, 252, 0.38);
+
+  color: #d8b4fe;
+
+  font-size: 25px;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 30px rgba(168, 85, 247, 0.10);
+}
+
+.clue-content h3 {
+  margin: 12px 0;
+
+  font-size: 27px;
+
+  color: #f3e8ff;
+}
+
+.clue-content p {
+  max-width: 720px;
+
+  color: #a99caf;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   REVEAL BUTTON
+========================================= */
+
+.clue-btn {
+  margin-top: 25px;
+
+  padding: 13px 21px;
+
+  border: 1px solid rgba(192, 132, 252, 0.35);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.15),
+      rgba(192, 132, 252, 0.05)
+    );
+
+  color: #d8b4fe;
+
+  font-weight: 700;
+
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.clue-btn:hover {
+  background: #a855f7;
+
+  color: white;
+
+  transform: translateX(5px);
+
+  box-shadow:
+    0 10px 35px rgba(168, 85, 247, 0.28);
+}
+
+
+/* =========================================
+   FINAL EVIDENCE
+========================================= */
+
+.final-evidence {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border-left: 3px solid #a855f7;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(168, 85, 247, 0.09),
+      transparent
+    );
+}
+
+.final-evidence span {
+  color: #d8b4fe;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.final-evidence p {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   ANSWER CARD
+========================================= */
+
+.answer-card {
+  margin-top: 30px;
+
+  padding: 45px;
+
+  border-radius: 24px;
+
+  border: 1px solid rgba(216, 180, 254, 0.10);
+
+  background:
+    linear-gradient(
+      145deg,
+      #150c20,
+      #0d0715
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.35);
+}
+
+.answer-card h2 {
+  margin: 10px 0;
+
+  font-size: 32px;
+}
+
+.answer-card > p {
+  color: #93859e;
+}
+
+.answer-row {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.answer-row input {
+  flex: 1;
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(216, 180, 254, 0.12);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: #0b0611;
+
+  color: white;
+
+  font-size: 14px;
+
+  transition: 0.3s ease;
+}
+
+.answer-row input::placeholder {
+  color: #665873;
+}
+
+.answer-row input:focus {
+  border-color: #a855f7;
+
+  box-shadow:
+    0 0 0 3px rgba(168, 85, 247, 0.10),
+    0 0 30px rgba(168, 85, 247, 0.08);
+}
+
+
+/* =========================================
+   CHECK BUTTON
+========================================= */
+
+.check-btn {
+  padding: 0 25px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a855f7,
+      #c084fc
+    );
+
+  color: #180b24;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 8px 25px rgba(168, 85, 247, 0.18);
+}
+
+.check-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 35px rgba(168, 85, 247, 0.30);
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+.result {
+  margin-top: 20px;
+
+  padding: 16px 20px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+}
+
+.result.success {
+  background: rgba(192, 132, 252, 0.08);
+
+  border: 1px solid rgba(192, 132, 252, 0.25);
+
+  color: #d8b4fe;
+}
+
+.result.failure {
+  background: rgba(255, 75, 75, 0.07);
+
+  border: 1px solid rgba(255, 75, 75, 0.20);
+
+  color: #ff8d8d;
+}
+
+
+/* =========================================
+   SOLUTION
+========================================= */
+
+.solution-box {
+  margin-top: 25px;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.13),
+      rgba(192, 132, 252, 0.04)
+    );
+
+  border: 1px solid rgba(192, 132, 252, 0.22);
+
+  animation: solutionReveal 0.5s ease;
+}
+
+@keyframes solutionReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.solution-box span {
+  color: #d8b4fe;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.solution-box h3 {
+  margin: 10px 0;
+
+  font-size: 30px;
+
+  color: #f3e8ff;
+}
+
+.solution-box p {
+  color: #a397aa;
+
+  line-height: 1.8;
+}
+
+.reset-btn {
+  margin-top: 15px;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(192, 132, 252, 0.20);
+
+  border-radius: 9px;
+
+  background: rgba(168, 85, 247, 0.06);
+
+  color: #cdb9dc;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(168, 85, 247, 0.15);
+
+  color: white;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.bottom-actions {
+  margin-top: 45px;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.back-btn {
+  padding: 13px 20px;
+
+  border: 1px solid rgba(192, 132, 252, 0.12);
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #91849d;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  color: #f3e8ff;
+
+  border-color: rgba(192, 132, 252, 0.35);
+
+  background: rgba(168, 85, 247, 0.06);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+  .case-header {
+    align-items: flex-start;
+
+    gap: 30px;
+
+    flex-direction: column;
+  }
+
+  .case-status {
+    text-align: left;
+  }
+
+  .suspects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-card,
+  .clue-card {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-row {
+    flex-direction: column;
+  }
+
+  .check-btn {
+    padding: 15px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .case-container {
+    width: 90%;
+
+    padding: 45px 0;
+  }
+
+  .case-header {
+    padding: 40px 5%;
+  }
+
+  .case-header h1 {
+    font-size: 46px;
+  }
+
+  .evidence-card,
+  .clue-card,
+  .answer-card {
+    padding: 25px;
+  }
+
+  .section-heading h2 {
+    font-size: 25px;
+  }
+}

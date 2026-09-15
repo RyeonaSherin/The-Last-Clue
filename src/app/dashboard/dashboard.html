@@ -1,0 +1,538 @@
+<div class="dashboard-page">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+
+    <div class="brand">
+      <span>THE LAST CLUE</span>
+      <small>DETECTIVE INVESTIGATION NETWORK</small>
+    </div>
+<button class="nav-scroll-btn" (click)="scrollToCases()">
+  VIEW CASES ↓
+</button>
+    <div class="detective-info">
+      <div class="avatar">R</div>
+
+      <div>
+        <strong>Ryeona</strong>
+        <small>Junior Investigator</small>
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboard-container">
+
+    <!-- WELCOME -->
+    <section class="welcome-section">
+
+      <div>
+        <span class="eyebrow">INVESTIGATION CENTER</span>
+
+        <h1>
+          Ready to uncover<br />
+          <span>the truth?</span>
+        </h1>
+
+        <p>
+          Analyze evidence, follow the clues,
+          and solve the cases waiting for you.
+        </p>
+      </div>
+
+      <div class="welcome-symbol">
+        🔎
+      </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+    <section class="stats-grid">
+
+      <div class="stat-card">
+
+        <div class="stat-icon">📁</div>
+
+        <div>
+          <span>ACTIVE CASES</span>
+          <strong>3</strong>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">🔍</div>
+
+        <div>
+          <span>CLUES FOUND</span>
+          <strong>12</strong>
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">✓</div>
+
+        <div>
+          <span>CASES SOLVED</span>
+          <strong>2</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- INVESTIGATOR PROFILE BUTTON -->
+    <section class="profile-section">
+
+      <div class="profile-info">
+
+        <div>
+          <span class="eyebrow">YOUR PROFILE</span>
+
+          <h2>Investigator Credentials</h2>
+
+          <p>
+            Complete your detective profile before
+            beginning your investigation.
+          </p>
+        </div>
+
+        <button
+          class="profile-btn"
+          (click)="toggleForm()"
+        >
+          {{ showForm ? 'CLOSE PROFILE FORM' : 'CREATE INVESTIGATOR PROFILE →' }}
+        </button>
+
+      </div>
+
+
+      <!-- REACTIVE FORM -->
+      @if (showForm) {
+
+        <div class="investigator-form-card">
+
+          <div class="form-heading">
+
+            <span>CLASSIFIED RECORD</span>
+
+            <h2>Investigator Profile</h2>
+
+            <p>
+              Enter your credentials to create your
+              official investigation profile.
+            </p>
+
+          </div>
+
+
+          <form
+            [formGroup]="investigatorForm"
+            (ngSubmit)="submitForm()"
+          >
+
+
+            <!-- NAME -->
+            <div class="form-group">
+
+              <label for="name">
+                Full Name
+              </label>
+
+              <input
+                id="name"
+                type="text"
+                formControlName="name"
+                placeholder="Enter your full name"
+              />
+
+              @if (
+                investigatorForm.get('name')?.touched &&
+                investigatorForm.get('name')?.invalid
+              ) {
+
+                <small>
+                  Full name is required.
+                </small>
+
+              }
+
+            </div>
+
+
+            <!-- DETECTIVE ID -->
+            <div class="form-group">
+
+              <label for="detectiveId">
+                Detective ID
+              </label>
+
+              <input
+                id="detectiveId"
+                type="text"
+                formControlName="detectiveId"
+                placeholder="Create your detective ID"
+              />
+
+              @if (
+                investigatorForm.get('detectiveId')?.touched &&
+                investigatorForm.get('detectiveId')?.invalid
+              ) {
+
+                <small>
+                  Detective ID is required.
+                </small>
+
+              }
+
+            </div>
+
+
+            <!-- EMAIL -->
+         <div class="form-group email-section">
+
+  <div class="email-heading">
+    <label>Email Address</label>
+
+    <button
+      type="button"
+      class="add-email-btn"
+      (click)="addEmail()"
+    >
+      + Add Email
+    </button>
+  </div>
+
+  @for (email of emails; track $index) {
+
+    <div class="email-row">
+
+      <input
+        type="email"
+        [value]="email"
+        (input)="emails[$index] = $any($event.target).value"
+        [placeholder]="$index === 0 ? 'Enter primary email' : 'Enter alternate email'"
+      />
+
+      @if ($index > 0) {
+        <button
+          type="button"
+          class="remove-email-btn"
+          (click)="removeEmail($index)"
+        >
+          ×
+        </button>
+      }
+
+    </div>
+
+    @if ($index === 0) {
+      @if (
+        investigatorForm.get('email')?.touched &&
+        investigatorForm.get('email')?.invalid
+      ) {
+        <small>Enter a valid email address.</small>
+      }
+    }
+
+  }
+
+</div>
+
+
+            <!-- SPECIALIZATION -->
+            <div class="form-group">
+
+              <label for="specialization">
+                Specialization
+              </label>
+
+              <select
+                id="specialization"
+                formControlName="specialization"
+              >
+
+                <option value="">
+                  Select specialization
+                </option>
+
+                <option value="Cyber Crime">
+                  Cyber Crime
+                </option>
+
+                <option value="Digital Forensics">
+                  Digital Forensics
+                </option>
+
+                <option value="Criminal Investigation">
+                  Criminal Investigation
+                </option>
+
+                <option value="Financial Crime">
+                  Financial Crime
+                </option>
+
+              </select>
+
+              @if (
+                investigatorForm.get('specialization')?.touched &&
+                investigatorForm.get('specialization')?.invalid
+              ) {
+
+                <small>
+                  Please select a specialization.
+                </small>
+
+              }
+
+            </div>
+
+
+            <!-- EXPERIENCE -->
+            <div class="form-group">
+
+              <label for="experience">
+                Experience Level
+              </label>
+
+              <select
+                id="experience"
+                formControlName="experience"
+              >
+
+                <option value="">
+                  Select experience level
+                </option>
+
+                <option value="Beginner">
+                  Beginner
+                </option>
+
+                <option value="Intermediate">
+                  Intermediate
+                </option>
+
+                <option value="Expert">
+                  Expert
+                </option>
+
+              </select>
+
+              @if (
+                investigatorForm.get('experience')?.touched &&
+                investigatorForm.get('experience')?.invalid
+              ) {
+
+                <small>
+                  Please select your experience level.
+                </small>
+
+              }
+
+            </div>
+
+
+            <!-- SUBMIT -->
+            <button
+              type="submit"
+              class="submit-btn"
+              [disabled]="investigatorForm.invalid"
+            >
+              SAVE INVESTIGATOR PROFILE →
+            </button>
+
+          </form>
+
+        </div>
+
+      }
+
+    </section>
+
+
+    <!-- ACTIVE CASES -->
+   <section class="cases-section" id="cases">
+
+      <div class="section-header">
+
+        <div>
+          <span class="eyebrow">YOUR ASSIGNMENTS</span>
+
+          <h2>Active Cases</h2>
+        </div>
+
+        <span class="case-count">
+          03 CASES
+        </span>
+
+      </div>
+
+
+      <div class="case-grid">
+
+
+        <!-- CASE 001 -->
+        <div class="case-card">
+
+          <div class="case-top">
+
+            <span class="case-number">
+              CASE #001
+            </span>
+
+            <span class="difficulty medium">
+              MEDIUM
+            </span>
+
+          </div>
+
+          <h3>
+            The Vanishing Hour
+          </h3>
+
+          <p>
+            A mysterious event occurred between
+            10 PM and 11 PM.
+          </p>
+
+          <div class="progress-area">
+
+            <div class="progress-info">
+              <span>PROGRESS</span>
+              <strong>35%</strong>
+            </div>
+
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                style="width: 35%"
+              ></div>
+            </div>
+
+          </div>
+<button
+  class="investigate-btn"
+  routerLink="/case"
+>
+  INVESTIGATE CASE →
+</button>
+        </div>
+
+
+        <!-- CASE 002 -->
+        <div class="case-card">
+
+          <div class="case-top">
+
+            <span class="case-number">
+              CASE #002
+            </span>
+
+            <span class="difficulty hard">
+              HARD
+            </span>
+
+          </div>
+
+          <h3>
+            The Silent Witness
+          </h3>
+
+          <p>
+            A witness knows more than they are
+            willing to reveal.
+          </p>
+
+          <div class="progress-area">
+
+            <div class="progress-info">
+              <span>PROGRESS</span>
+              <strong>68%</strong>
+            </div>
+
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                style="width: 68%"
+              ></div>
+            </div>
+
+          </div>
+
+          <button
+  class="investigate-btn"
+  routerLink="/case2"
+>
+  INVESTIGATE CASE →
+</button>
+
+        </div>
+
+
+        <!-- CASE 003 -->
+        <div class="case-card locked">
+
+          <div class="case-top">
+
+            <span class="case-number">
+              CASE #003
+            </span>
+
+            <span class="difficulty locked-label">
+              LOCKED
+            </span>
+
+          </div>
+
+          <div class="lock-icon">
+            🔒
+          </div>
+
+          <h3>
+            The Final Secret
+          </h3>
+
+          <p>
+            Solve the previous cases to unlock
+            this investigation.
+          </p>
+
+         <button
+  class="investigate-btn"
+  routerLink="/case3"
+>
+  ACCESS FINAL CASE →
+</button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+      <span>
+        THE LAST CLUE
+      </span>
+
+      <p>
+        Every mystery leaves a trace.
+      </p>
+
+    </footer>
+
+  </main>
+
+</div>

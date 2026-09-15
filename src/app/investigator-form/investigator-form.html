@@ -1,0 +1,106 @@
+<div class="form-page">
+
+  <div class="form-card">
+
+    <div class="form-heading">
+      <span>THE LAST CLUE</span>
+
+      <h1>Investigator Profile</h1>
+
+      <p>
+        Register your detective credentials
+        before entering the investigation.
+      </p>
+    </div>
+
+    <form [formGroup]="investigatorForm" (ngSubmit)="submitForm()">
+
+      <div class="form-group">
+        <label>Full Name</label>
+
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Enter your name"
+        />
+
+        @if (investigatorForm.get('name')?.touched &&
+             investigatorForm.get('name')?.invalid) {
+          <small>Name is required.</small>
+        }
+      </div>
+
+
+      <div class="form-group">
+        <label>Detective ID</label>
+
+        <input
+          type="text"
+          formControlName="detectiveId"
+          placeholder="Create detective ID"
+        />
+
+        @if (investigatorForm.get('detectiveId')?.touched &&
+             investigatorForm.get('detectiveId')?.invalid) {
+          <small>Detective ID is required.</small>
+        }
+      </div>
+
+
+      <div class="form-group">
+        <label>Email</label>
+
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Enter email address"
+        />
+
+        @if (investigatorForm.get('email')?.touched &&
+             investigatorForm.get('email')?.invalid) {
+          <small>Enter a valid email.</small>
+        }
+      </div>
+
+
+      <div class="form-group">
+        <label>Specialization</label>
+
+        <select formControlName="specialization">
+          <option value="">Select specialization</option>
+          <option value="Cyber Crime">Cyber Crime</option>
+          <option value="Digital Forensics">Digital Forensics</option>
+          <option value="Criminal Investigation">
+            Criminal Investigation
+          </option>
+          <option value="Financial Crime">
+            Financial Crime
+          </option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label>Experience Level</label>
+
+        <select formControlName="experience">
+          <option value="">Select experience</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Expert">Expert</option>
+        </select>
+      </div>
+
+
+      <button
+        type="submit"
+        [disabled]="investigatorForm.invalid"
+      >
+        CREATE INVESTIGATOR PROFILE →
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
