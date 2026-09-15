@@ -169,15 +169,30 @@ The-Last-Clue/
 ---
 
 ## 🚀 Getting Started
-1. Clone the Repository
+
+### 1. Clone the Repository
+
+```bash
 git clone YOUR_GITHUB_REPOSITORY_URL
-2. Navigate to the Project
+
+### 2. Navigate to the Project
+
+```bash
 cd The-Last-Clue
-3. Install Dependencies
+
+### 3. Install Dependencies
+
+```bash
 npm install
-4. Start the Development Server
+
+### 4. Start the Development Server
+
+```bash
 ng serve
-5. Open in Browser
+
+### 5. Open in Browser
+
+```bash
 http://localhost:4200
 
 ---
