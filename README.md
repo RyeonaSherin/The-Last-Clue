@@ -165,3 +165,28 @@ The-Last-Clue/
 ├── package.json
 ├── angular.json
 └── README.md
+---
+## 🚀 Getting Started
+1. Clone the Repository
+git clone YOUR_GITHUB_REPOSITORY_URL
+2. Navigate to the Project
+cd The-Last-Clue
+3. Install Dependencies
+npm install
+4. Start the Development Server
+ng serve
+5. Open in Browser
+http://localhost:4200
+
+---
+
+## 🔑 Demo Login
+Use the following credentials to access the application:
+
+Detective ID: Ryeona
+Access Code: noir123
+Case #003 Access Code
+shadow
+
+---
+
