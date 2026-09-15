@@ -190,3 +190,45 @@ shadow
 
 ---
 
+## 🎯 Project Objective
+
+The main objective of The Last Clue is to demonstrate how Angular can be used to build an interactive, component-based web application while applying concepts such as routing, forms, data binding, event handling, and conditional rendering.
+
+The project transforms these technical concepts into an engaging detective investigation experience.
+---
+## 🌟 Key Highlights
+Interactive case-solving experience
+Multiple levels of difficulty
+Evidence-based investigation
+Dynamic clue progression
+Real-time investigation timer
+Password-protected final case
+Investigator profile creation
+Modern responsive interface
+Angular routing between different investigation sections
+---
+## 🔮 Future Enhancements
+
+Possible future improvements include:
+
+Detective ranking system
+Case completion history
+Persistent investigation progress
+More mystery cases
+Sound effects and background music
+Advanced evidence interactions
+Leaderboards
+Backend authentication
+Database integration
+---
+## 👩‍💻 Developed By
+
+Ryeona Sherin R
+
+Project: The Last Clue
+Technology: Angular
+Domain: Interactive Web Application / Mystery Investigation
+---
+## 📜 License
+
+This project was created for educational and project demonstration purposes.
